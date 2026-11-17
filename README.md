@@ -46,6 +46,15 @@ The Oakmere Wood Care website. Plain HTML, CSS and JavaScript with **no build st
 
 **Updating later:** every change you commit on GitHub goes live automatically within a minute or two. Watch **Deployments** in Cloudflare for a green "Success".
 
+### If the Cloudflare build fails
+
+Cloudflare has two ways to host a site from GitHub, and this repository works with both:
+
+- **Pages project:** Framework preset **None**, build command **empty**, build output directory `/`.
+- **Worker project** (what the newer "Import a repository" button creates): build command **empty**, deploy command `npx wrangler deploy`. The files `wrangler.jsonc`, `worker.js` and `.assetsignore` make this work. The Worker must be named `oakmere`; if yours has another name, change the `"name"` line in `wrangler.jsonc` to match it.
+
+If a build still fails, open the failed deployment in Cloudflare, copy the red error line from the build log, and send it over.
+
 ## 3. Let AI assistants read the site (important)
 
 Cloudflare can block AI crawlers before they ever see `robots.txt`. In the Cloudflare dashboard for oakmerewoodcare.com:

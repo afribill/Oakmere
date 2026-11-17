@@ -1,0 +1,14 @@
+// Cloudflare settings. This lets the site deploy whether the Cloudflare project
+// was created as "Pages" or as a "Worker" (the newer "Import a repository" flow).
+{
+  "name": "oakmere",
+  "compatibility_date": "2026-06-01",
+  "main": "worker.js",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  }
+}
